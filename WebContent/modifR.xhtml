@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head></h:head>
+<h:body>
+
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" size="80">
+
+<h:outputText value="Bienvenue dns notre application" />
+	
+		</p:layoutUnit>
+		<p:layoutUnit position="south" size="100">
+			<h:outputText value="Copyright 2012." />
+		</p:layoutUnit>
+		<p:layoutUnit position="west" size="200"
+			style="width:200;border-width:1px;">
+		<ui:include src="menu.xhtml"></ui:include>
+				</p:layoutUnit>
+		<p:layoutUnit position="east" size="200"
+			style="width:200;border-width:1px;">
+
+		</p:layoutUnit>
+		<p:layoutUnit position="center" style="width:200; border-width:0px;">
+		
+		<h:form>
+	<h:message style="color:red"/>
+	<h:panelGrid columns="2">
+	
+	<h:outputText value="id" />
+	<h:inputText value="#{reservationManagedBean.selectedreservation.idReservation}" required="true" requiredMessage="le id est obligatooire " />
+	
+	<h:outputText value="nbrenuit" />
+	<h:inputText value="#{reservationManagedBean.selectedreservation.nbrenuit}" required="true" requiredMessage="le id est obligatooire " />
+	
+	<h:outputText value="Date-reservation" />
+	<p:calendar value="#{reservationManagedBean.selectedreservation.datereservation}" required="true" requiredMessage="champs obligatoire" ></p:calendar> 
+
+<h:outputText value="idclient" />
+<p:selectOneMenu value="#{reservationManagedBean.selectedreservation.client.idClient}">
+<f:selectItems value="#{clientManagedBean.listClt}" var="clt" itemLabel="#{clt.nom}" itemValue="#{clt.idClient}"/>
+</p:selectOneMenu>
+	
+	<h:outputText value="idhotel" />
+<p:selectOneMenu value="#{reservationManagedBean.selectedreservation.hotel.idHotel}">
+<f:selectItems value="#{hotelManagedBean.listhtl}" var="hl" itemLabel="#{hl.nomHotel}" itemValue="#{hl.idHotel}"/>
+</p:selectOneMenu>
+
+	
+	</h:panelGrid>
+	
+	<h:commandButton value="Modifier" actionListener="#{reservationManagedBean.modifier}" />
+	
+	</h:form>		
+
+
+</p:layoutUnit>
+</p:layout>
+
+
+</h:body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

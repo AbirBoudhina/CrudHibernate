@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head></h:head>
+<h:body>
+
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" size="80">
+
+<h:outputText value="Bienvenue dns notre application" />
+	
+		</p:layoutUnit>
+		<p:layoutUnit position="south" size="100">
+			<h:outputText value="Copyright 2012." />
+		</p:layoutUnit>
+		<p:layoutUnit position="west" size="200"
+			style="width:200;border-width:1px;">
+			<ui:include src="menu.xhtml"></ui:include>
+			
+		</p:layoutUnit>
+		<p:layoutUnit position="east" size="200"
+			style="width:200;border-width:1px;">
+
+		</p:layoutUnit>
+		<p:layoutUnit position="center" style="width:200; border-width:0px;">
+		<h:form>
+		<p:messages/>
+<h:panelGrid columns="2">
+
+<h:outputText value="id" />
+<h:inputText value="#{hotelManagedBean.h.idHotel}" required="true" requiredMessage="le id est obligaoire"/>
+
+
+
+<h:outputText value="nom-Hotel" />
+<h:inputText value="#{hotelManagedBean.h.nomHotel}" required="true" requiredMessage="le nom est obligatoire"/>
+
+<h:outputText value="tel" />
+<h:inputText value="#{hotelManagedBean.h.tel}" required="true" requiredMessage="le tel est obligatoire" />
+
+<h:outputText value="adresse" />
+<h:inputText value="#{hotelManagedBean.h.adresse}" required="true" requiredMessage="l adresse est obligatoire" />
+
+</h:panelGrid>
+<h:commandButton actionListener="#{hotelManagedBean.ajouter}" value="Ajouter" />			
+</h:form>
+
+</p:layoutUnit>
+</p:layout>
+
+
+</h:body>
+
+
+
+
+
+
+
+
+
+
+
+</html>
